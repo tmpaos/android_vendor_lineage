@@ -24,6 +24,38 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
+# Gapps
+ifeq ($(TARGET_INCLUDE_GAPPS),true)
+    PLUS_BUILD := GAPPS
+    $(call inherit-product, vendor/gms/gms_mini.mk)
+
+    # Gapps permissions
+    PRODUCT_COPY_FILES += \
+    vendor/lineage/config/permissions/privapp-permissions-elgoog.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-elgoog.xml \
+    vendor/lineage/config/permissions/privapp-permissions-gms.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/privapp-permissions-gms.xml
+
+    # Gboard props
+    PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.bs_theme=true \
+    ro.com.google.ime.theme_id=5 \
+    ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
+
+else
+    PLUS_BUILD := VANILLA
+
+    PRODUCT_PACKAGES += \
+    TrebuchetQuickStep \
+    Eleven \
+    Etar \
+    ExactCalculator \
+    Jelly \
+    Seedvault \
+    LineageSetupWizard
+
+    PRODUCT_DEXPREOPT_SPEED_APPS += \
+    TrebuchetQuickStep
+endif
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
@@ -110,7 +142,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LineageParts \
     LineageSettingsProvider \
-    LineageSetupWizard \
     Updater
 
 PRODUCT_COPY_FILES += \
