@@ -56,6 +56,10 @@ else
     TrebuchetQuickStep
 endif
 
+#build fingerprint
+BUILD_FINGERPRINT := google/raven/raven:12/SQ3A.220605.009.B1/8650216:user/release-keys
+
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
