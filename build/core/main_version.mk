@@ -6,9 +6,9 @@ endif
 
 # LineageOS System Version
 ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+    ro.axiomos.version=$(LINEAGE_VERSION) \
+    ro.axiomos.releasetype=$(LINEAGE_BUILDTYPE) \
+    ro.axiomos.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
     ro.modversion=$(LINEAGE_VERSION) \
     ro.lineagelegal.url=https://lineageos.org/legal
 
