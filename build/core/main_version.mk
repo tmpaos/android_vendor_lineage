@@ -10,7 +10,7 @@ ADDITIONAL_SYSTEM_PROPERTIES += \
     ro.axiomos.releasetype=$(LINEAGE_BUILDTYPE) \
     ro.axiomos.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
     ro.modversion=$(LINEAGE_VERSION) \
-    ro.lineagelegal.url=https://lineageos.org/legal
+    ro.lineagelegal.url=https://hub.axiomos.pl
 
 # LineageOS Platform Display Version
 ADDITIONAL_SYSTEM_PROPERTIES += \
