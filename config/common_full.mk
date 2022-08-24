@@ -1,5 +1,5 @@
-# Inherit common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_mobile.mk)
+# Inherit common Axiomos stuff
+$(call inherit-product, vendor/axiomos/config/common_mobile.mk)
 
 PRODUCT_SIZE := full
 
@@ -10,8 +10,8 @@ $(call inherit-product-if-exists, external/google-fonts/rubik/fonts.mk)
 # Fonts
 PRODUCT_PACKAGES += \
     fonts_customization.xml \
-    FontLatoOverlay \
-    FontRubikOverlay
+    AxiomOSLatoOverlay \
+    AxiomOSRubikOverlay
 
 # Recorder
 PRODUCT_PACKAGES += \

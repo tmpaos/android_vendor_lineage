@@ -1,25 +1,18 @@
-# Build fingerprint
-ifneq ($(BUILD_FINGERPRINT),)
-ADDITIONAL_SYSTEM_PROPERTIES += \
+BUILD_NUMBER_CUSTOM := $(shell date -u +%H%M)
+
+BUILD_SIGNATURE_KEYS := release-keys
+
+BUILD_FINGERPRINT := $(PRODUCT_BRAND)/$(TARGET_DEVICE)/$(TARGET_DEVICE):$(PLATFORM_VERSION)/$(BUILD_ID)/$(BUILD_NUMBER_CUSTOM):$(TARGET_BUILD_VARIANT)/$(BUILD_SIGNATURE_KEYS)
+ADDITIONAL_SYSTEM_PROPERTIES  += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
-endif
 
-# LineageOS System Version
-ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.modversion=$(LINEAGE_VERSION) \
-    ro.lineagelegal.url=https://lineageos.org/legal
-
-# LineageOS Platform Display Version
-ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION)
-
-# LineageOS Platform SDK Version
-ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.lineage.build.version.plat.sdk=$(LINEAGE_PLATFORM_SDK_VERSION)
-
-# LineageOS Platform Internal Version
-ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.lineage.build.version.plat.rev=$(LINEAGE_PLATFORM_REV)
+# Voltageos System Version
+ADDITIONAL_BUILD_PROPERTIES += \
+  ro.axiomos.version=$(AXIOMOS_DISPLAY_VERSION) \
+  ro.axiomos.build.status=$(AXIOMOS_BUILD_TYPE) \
+  ro.modversion=$(AXIOMOS_MOD_VERSION) \
+  ro.axiomos.build.date=$(BUILD_DATE) \
+  ro.axiomos.buildtype=$(AXIOMOS_BUILD_TYPE) \
+  ro.axiomos.fingerprint=$(AXIOMOS_FINGERPRINT) \
+  ro.axiomos.device=$(AXIOMOS_BUILD) \
+  org.axiomos.version=$(AXIOMOSVERSION)

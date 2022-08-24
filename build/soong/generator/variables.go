@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func lineageExpandVariables(ctx android.ModuleContext, in string) string {
-	lineageVars := ctx.Config().VendorConfig("lineageVarsPlugin")
+func axiomosExpandVariables(ctx android.ModuleContext, in string) string {
+	axiomosVars := ctx.Config().VendorConfig("axiomosVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if lineageVars.IsSet(name) {
-			return lineageVars.String(name), nil
+		if axiomosVars.IsSet(name) {
+			return axiomosVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand
